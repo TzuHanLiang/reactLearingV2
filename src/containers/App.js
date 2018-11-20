@@ -13,11 +13,38 @@ class App extends PureComponent {
       { id: "sdjdq", name: "Jennie", age: 27 }
     ],
     showPerson: false,
+    toggleClicked: 0,
   }
 
   togglePersonHandler = () => {
     const doseShow = this.state.showPerson;
-    this.setState({ showPerson: !doseShow });
+    // this will working correctly and still dose the incorrect
+    // way of doing that. Because setState actually is a method
+    // executed asynchronously by react which means we can't rely
+    // on this.state being called inside setState to reflect 
+    // the latest version of the state. if we call setState 
+    // somewhere else in the application, basically around the 
+    // sametime, the other setState call might finish before this
+    // one. so this.state in here might not be correct.
+    // So there's a better syntax for calling this.setState if 
+    // we plan on using this.state inside of it and this is the 
+    // function syntax of it
+
+    // ========================wrong way =============    
+    // this.setState({ 
+    //   showPerson: !doseShow,
+    //   toggleClicked: this.state.toggleClicked + 1,
+    //  });
+
+    // ========================better way to do so ===
+    this.setState((prevState, props) => {
+      // prevState which we can safely access that because this 
+      // definitely is the last state it had at this point of time
+      return {
+        showPerson: !doseShow,
+        toggleClicked:prevState.toggleClicked + 1,
+      }
+    });
   }
  
   deletePersonHandler = (index) => {
