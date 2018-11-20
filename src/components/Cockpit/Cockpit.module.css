@@ -1,51 +1,51 @@
 .red {
-    color: red;
-  }
-  
-  .bold {
-    font-weight: bold;
-  }
+  color: red;
+}
 
-  .Cockpit button {
-    border: 1px solid green;
-    background-color: green;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 18px;
-    transition: all .2s;
-  }
-  
-  .Cockpit button:hover {
-    border: 1px solid lightgreen;
-    background-color: lightgreen;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
-  
-  }
-  
-  .Cockpit button:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
-  }
-  
-  .Cockpit button.Red {
-    border: 1px solid red;
-    background-color: red;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 18px;
-    transition: all .2s;
-  }
-  
-  .Cockpit button.Red:hover {
-    background-color: salmon;
-    border: 1px solid salmon;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
-  
-  }
-  
-  .Cockpit button.Red:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
-  }
+.bold {
+  font-weight: bold;
+}
+
+.Button {
+  border: 1px solid green;
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 18px;
+  transition: all .2s;
+}
+
+.Button:hover {
+  border: 1px solid lightgreen;
+  background-color: lightgreen;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+
+}
+
+.Button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.Button.Red {
+  border: 1px solid red;
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 18px;
+  transition: all .2s;
+}
+
+.Button.Red:hover {
+  background-color: salmon;
+  border: 1px solid salmon;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+
+}
+
+.Button.Red:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}

@@ -2,55 +2,19 @@ import React, { PureComponent } from 'react';
 import styles from './App.module.css';
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
+// import WithClass from "../hoc/WithClass";
+import withClasss from "../hoc/withClasss";
+
 
 class App extends PureComponent {
-  constructor(props){
-    super(props);
-    console.log("[App.js] Inside Constructor", props);
-    this.state = {
-      persons: [
-        { id: "sndjs", name: "Max", age: 28 },
-        { id: "sndfj", name: "Manu", age: 29 },
-        { id: "sdjdq", name: "Jennie", age: 27 }
-      ],
-      showPerson: false,
-    }
+  state = {
+    persons: [
+      { id: "sndjs", name: "Max", age: 28 },
+      { id: "sndfj", name: "Manu", age: 29 },
+      { id: "sdjdq", name: "Jennie", age: 27 }
+    ],
+    showPerson: false,
   }
-  componentWillMount(){
-    console.log("[App.js] Inside componentWillMount");
-  }
-
-  componentDidMount(){
-    console.log("[App.js] inside componentDidMount");
-  }
-  // shouldComponentUpdate(nextProps, nextState){
-  //   console.log("[Update App.js] inside shouldComponentUpdate", nextProps, nextState); 
-  //   return nextState.persons !== this.state.persons || 
-  //   nextState.showPerson !== this.state.showPerson ;
-  // }
-  componentWillUpdate(nextProps, nextState){
-    console.log("[Update App.js] inside componentWillUpdate", nextProps, nextState); 
-  }
-  componentDidUpdate(){
-    console.log("[Update App.js] inside componentDidUpdate");  
-  }
-
-
-  // =====================================================
-  // this way is the w=new way of initializing properties 
-  // in ES6 classes (preffered way, because it's easier, but
-  // not much different with the way initialized through the
-  // constructor)
-  // =====================================================
-
-  // state = {
-  //   persons: [
-  //     { id: "sndjs", name: "Max", age: 28 },
-  //     { id: "sndfj", name: "Manu", age: 29 },
-  //     { id: "sdjdq", name: "Jennie", age: 27 }
-  //   ],
-  //   showPerson: false,
-  // }
 
   togglePersonHandler = () => {
     const doseShow = this.state.showPerson;
@@ -75,7 +39,6 @@ class App extends PureComponent {
   }
 
   render() {
-    console.log("[App.js] inside render");
     let persons = null;
 
     if (this.state.showPerson) {
@@ -86,7 +49,9 @@ class App extends PureComponent {
     }
 
     return (
-      <div className={styles.App}>
+      // <WithClass classes={styles.App}>
+
+      <>
         <button onClick={() => {this.setState({showPerson: true})}}>Show  Persons</button>
         <Cockpit 
           appTitle={this.props.title}
@@ -95,9 +60,12 @@ class App extends PureComponent {
           clicked={this.togglePersonHandler}
          />
         {persons}
-      </div>
+        </>
+        
+      // </WithClass>
     );
   }
 }
 
-export default App;
+// export default App;
+export default withClasss(App, styles.App);
