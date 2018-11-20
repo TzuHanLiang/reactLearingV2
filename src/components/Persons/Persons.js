@@ -5,7 +5,36 @@ import Person from "./Person/Person";
 // it with parentheses. but if we're not having a jsx
 // expression here, we also can omit parentheses. 
 class Persons extends Component{
+  constructor(props){
+    super(props);
+    console.log("[Persons.js] Inside Constructor", props);
+  }
+  componentWillMount(){
+    console.log("[Persons.js] Inside componentWillMount");
+  }
+
+  componentDidMount(){
+    console.log("[Persons.js] inside componentDidMount");
+  }
+  componentWillUnmount() {
+    // Component is about to get removed => Perform any cleanup work here!
+    console.log('insideI [Persons.js] \'m about to be removed!');
+  }
+  componentWillReceiveProps(nextProps){
+    console.log("[Update Persons.js] inside componentWillReceiveProps", nextProps); 
+  }
+  shouldComponentUpdate(nextProps, nextState){
+    console.log("[Update Persons.js] inside shouldComponentUpdate", nextProps, nextState); 
+    return nextProps.persons !== this.props.persons;
+  }
+  componentWillUpdate(nextProps, nextState){
+    console.log("[Update Persons.js] inside componentWillUpdate", nextProps, nextState); 
+  }
+  componentDidUpdate(){
+    console.log("[Update Persons.js] inside componentDidUpdate");  
+  }
   render(){
+    console.log("[Persons.js] inside render");
     return this.props.persons.map((person, index) => {
       return <Person
       click={this.props.clicked.bind(this, index)}
