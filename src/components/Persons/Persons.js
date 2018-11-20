@@ -25,6 +25,7 @@ class Persons extends Component{
   }
   shouldComponentUpdate(nextProps, nextState){
     console.log("[Update Persons.js] inside shouldComponentUpdate", nextProps, nextState); 
+    // only do the shallow comparison
     return nextProps.persons !== this.props.persons || 
     nextProps.changed !== this.props.changed ||
     nextProps.clicked !== this.props.clicked;
